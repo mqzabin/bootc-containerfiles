@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - 'bazzite-home-server/**'
+      - 'home-server/**'
   workflow_dispatch:
 defaults:
   run:
@@ -16,7 +16,7 @@ env:
   IMAGE_DESC: "Custom bootc image for my Bazzite Home server"
   IMAGE_KEYWORDS: "bootc,ublue,universal-blue"
   IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4"
-  IMAGE_NAME: "bootc-bazzite-home-server"
+  IMAGE_NAME: "bootc-home-server"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
   DEFAULT_TAG: "latest"
 
@@ -109,8 +109,8 @@ jobs:
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
-            ./bazzite-home-server/Containerfile
-          context: ./bazzite-home-server
+            ./home-server/Containerfile
+          context: ./home-server
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
