@@ -8,7 +8,7 @@ on:
       - main
     paths:
       - 'thinkpad/**'
-      - 'bazzite-home-server/**'
+      - 'home-server/**'
       - '.github/workflows/build-images.yml'
   workflow_dispatch:
 defaults:
@@ -31,9 +31,9 @@ jobs:
             context: ./thinkpad
             description: "Personal bootc image for my Thinkpad X1 Carbon G13 Aura Laptop"
             sign: true
-          - image: bootc-bazzite-home-server
-            context: ./bazzite-home-server
-            description: "Custom bootc image for my Bazzite Home server"
+          - image: bootc-home-server
+            context: ./home-server
+            description: "Custom bootc image for my Home server"
             sign: false
 
     permissions:
