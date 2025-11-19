@@ -5,12 +5,6 @@ COPY build_files /
 # Base Image
 FROM ghcr.io/ublue-os/silverblue-main:43
 
-# From: https://gitlab.com/fedora/bootc/examples/-/blob/main/container-auth/Containerfile
-COPY ctx/containers-auth.conf /usr/lib/tmpfiles.d/link-podman-credentials.conf
-RUN --mount=type=secret,id=creds,required=true cp /run/secrets/creds /usr/lib/container-auth.json && \
-    chmod 0600 /usr/lib/container-auth.json && \
-    ln -sr /usr/lib/container-auth.json /etc/ostree/auth.json 
-
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
