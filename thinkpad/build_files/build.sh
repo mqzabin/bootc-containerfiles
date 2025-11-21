@@ -4,9 +4,6 @@ set -ouex pipefail
 
 dnf5 install -y dnf-plugins-core
 
-# Enable the Podman socket to start at boot:
-systemctl enable podman.socket
-
 # Fingerprint setup, following:
 # https://www.reddit.com/r/Fedora/comments/1gj5jbn/get_fingerprint_authentication_working_fedora_41/
 dnf5 install -y fprintd libfprint
@@ -33,6 +30,3 @@ dnf5 install -y 1password
 # Install Brave browser:
 dnf5 config-manager addrepo --from-repofile=/ctx/brave.repo
 dnf5 install -y brave-browser
-
-mv /opt /usr/share/factory # move files installed to /opt to /usr/share/factory so they will be in the final image
-ln -s /var/opt /opt # restore symlink between /var/opt and /opt again
