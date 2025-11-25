@@ -24,6 +24,9 @@ dnf5 install -y neovim
 dnf5 install -y fish
 chsh -s /usr/bin/fish
 
+# Installing stow:
+dnf5 install -y stow
+
 # Remove Firefox:
 dnf5 remove -y firefox
 
