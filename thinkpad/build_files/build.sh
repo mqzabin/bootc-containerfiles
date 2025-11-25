@@ -14,6 +14,9 @@ dnf5 install -y podman-docker docker-compose
 # VSCode install:
 dnf5 install -y "https://code.visualstudio.com/sha/download?build=stable&os=linux-rpm-x64"
 
+# Helix install:
+dnf5 install -y helix
+
 # Remove Firefox:
 dnf5 remove -y firefox
 
