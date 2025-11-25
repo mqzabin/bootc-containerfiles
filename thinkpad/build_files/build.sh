@@ -4,8 +4,7 @@ set -ouex pipefail
 
 dnf5 remove -y firefox
 
-dnf5 install -y dnf-plugins-core fish util-linux util-linux-user podman-docker docker-compose fprintd libfprint helix neovim stow 
-chsh -s /usr/bin/fish 
+dnf5 install -y dnf-plugins-core podman-docker docker-compose fprintd libfprint helix neovim stow 
 
 # Packages that require /opt to be an actual folder instead of a symlink
 rm /opt
