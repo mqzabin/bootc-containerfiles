@@ -17,11 +17,17 @@ dnf5 install -y "https://code.visualstudio.com/sha/download?build=stable&os=linu
 # Helix install:
 dnf5 install -y helix
 
+# Neovim install:
+dnf5 install -y neovim
+
+# Using Fish shell:
+dnf5 install -y fish
+chsh -s /usr/bin/fish
+
 # Remove Firefox:
 dnf5 remove -y firefox
 
-# /opt is symlinked to /var/opt
-# for packages that require it to be writeable do the following:
+# Packages that require 
 rm /opt # this is a file not a directory currently
 mkdir /opt # create the opt directory so files can be installed to it
 # install package (dnf5 -y install .....)
