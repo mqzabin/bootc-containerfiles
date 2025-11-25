@@ -21,7 +21,7 @@ dnf5 install -y helix
 dnf5 install -y neovim
 
 # Using Fish shell:
-dnf5 install -y fish util-linux
+dnf5 install -y fish util-linux util-linux-user
 chsh -s /usr/bin/fish
 
 # Installing stow:
