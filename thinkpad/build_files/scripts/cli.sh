@@ -11,7 +11,8 @@ dnf5 install -y \
     neovim \
     stow \
     ranger \
-    saasc
+    saasc \
+    tmux
 
 dnf5 copr enable -y dejan/lazygit
 dnf5 install -y lazygit
