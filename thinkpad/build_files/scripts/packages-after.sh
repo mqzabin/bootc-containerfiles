@@ -7,9 +7,9 @@ rm /opt
 mkdir /opt
 
 # Setup 1Password installation:
-dnf5 config-manager addrepo --from-repofile=/ctx/1password.repo
+dnf5 config-manager addrepo --from-repofile=/ctx/repos/1password.repo
 dnf5 install -y 1password
 
 # Install Brave browser:
-dnf5 config-manager addrepo --from-repofile=/ctx/brave.repo
+dnf5 config-manager addrepo --from-repofile=/ctx/repos/brave.repo
 dnf5 install -y brave-browser

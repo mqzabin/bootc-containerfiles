@@ -5,15 +5,3 @@ set -ouex pipefail
 
 dnf5 remove -y firefox
 
-dnf5 install -y \
-    dnf-plugins-core \
-    podman-docker \
-    docker-compose \
-    fprintd \
-    libfprint \
-    helix \
-    neovim \
-    stow \
-    fish
-
-
