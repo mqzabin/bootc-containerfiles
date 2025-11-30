@@ -2,7 +2,7 @@
 set -ouex pipefail
 
 dnf5 copr enable -y dejan/lazygit
-dnf5 copr enable varlad/zellij 
+dnf5 copr enable -y varlad/zellij 
 
 dnf5 install -y \
     podman-docker \
