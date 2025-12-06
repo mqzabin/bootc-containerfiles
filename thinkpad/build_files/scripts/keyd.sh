@@ -7,6 +7,8 @@ dnf5 install -y keyd
 
 systemctl enable keyd.service
 
+mkdir -p /etc/keyd
+touch /etc/keyd/default.conf
 cat <<EOF >> /etc/keyd/default.conf
 [ids]
 
