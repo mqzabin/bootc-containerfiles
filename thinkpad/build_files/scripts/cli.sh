@@ -4,7 +4,6 @@ set -ouex pipefail
 dnf5 copr enable -y dejan/lazygit
 dnf5 copr enable -y varlad/zellij 
 dnf5 copr enable -y lihaohong/yazi
-dnf5 copr enable -y scottames/ghostty
 
 
 dnf5 install -y \
@@ -18,5 +17,4 @@ dnf5 install -y \
     gtk-murrine-engine \
     lazygit \
     zellij \
-    yazi \
-    ghostty
+    yazi

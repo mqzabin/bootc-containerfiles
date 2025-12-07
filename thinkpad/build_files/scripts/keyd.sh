@@ -1,6 +1,4 @@
-#!/bin/bash
-set -ouex pipefail
-
+#!/bin/bash set -ouex pipefail
 dnf5 copr enable -y fmonteghetti/keyd
 
 dnf5 install -y keyd
@@ -20,5 +18,13 @@ cat <<EOF >> /etc/keyd/default.conf
 capslock = overload(control, esc)
 
 # Remaps the escape key to capslock
-esc = capslock
+esc = layer(nav)
+
+rightcontrol = rightcontrol
+
+[nav]
+h = left
+k = up
+j = down
+l = right
 EOF
