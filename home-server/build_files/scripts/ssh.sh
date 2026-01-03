@@ -9,20 +9,20 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo "Installing openssh-server..."
-sudo dnf install -y openssh-server
+dnf install -y openssh-server
 
 echo "Enabling SSH service at boot..."
-sudo systemctl enable sshd
+systemctl enable sshd
 
 echo "Starting SSH service..."
-sudo systemctl start sshd
+systemctl start sshd
 
 echo "Configuring firewall to allow SSH..."
-sudo firewall-cmd --permanent --add-service=ssh
-sudo firewall-cmd --reload
+firewall-cmd --permanent --add-service=ssh
+firewall-cmd --reload
 
 echo "Verifying SSH service status..."
-sudo systemctl status sshd
+systemctl status sshd
 
 echo "Setup complete! SSH is now enabled and ready for connections."
 echo "Test it by running: ssh <your-username>@<IP_ADDRESS>"
