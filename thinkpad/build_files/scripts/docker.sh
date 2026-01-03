@@ -1,11 +1,11 @@
 #!/bin/bash
 
-sudo dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install \
+dnf config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install -y \
     docker-ce \
     docker-ce-cli \
     containerd.io \
     docker-buildx-plugin \
     docker-compose-plugin
 
-sudo groupadd docker
+groupadd docker
