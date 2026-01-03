@@ -7,8 +7,6 @@ dnf5 copr enable -y lihaohong/yazi
 
 
 dnf5 install -y \
-    podman-docker \
-    docker-compose \
     helix \
     stow \
     mc \
