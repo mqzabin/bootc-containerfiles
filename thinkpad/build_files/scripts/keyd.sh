@@ -22,4 +22,9 @@ esc = layer(nav)
 
 rightcontrol = rightcontrol
 
+[nav]
+h = left
+k = up
+j = down
+l = right
 EOF
