@@ -18,3 +18,5 @@ dnf5 install -y \
     lazygit \
     zellij \
     yazi
+
+touch /etc/containers/nodocker
