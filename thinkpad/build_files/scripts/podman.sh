@@ -3,4 +3,6 @@
 dnf install -y \
     podman-docker \
     qemu \
-    podman-gvproxy
+    podman-gvproxy \
+    podman-machine \
+    
