@@ -8,8 +8,7 @@ on:
       - main
     paths:
       - 'thinkpad/**'
-      - 'home-server/**'
-      - '.github/workflows/build-images.yml'
+      - '.github/workflows/build-image-thinkpad.yml'
   workflow_dispatch:
 defaults:
   run:
@@ -21,31 +20,18 @@ concurrency:
 
 jobs:
   build_push:
-    name: Build and push ${{ matrix.image }}
+    name: Build and push bootc-thinkpad
     runs-on: ubuntu-24.04
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - image: bootc-thinkpad
-            context: ./thinkpad
-            description: "Personal bootc image for my Thinkpad X1 Carbon G13 Aura Laptop"
-            sign: true
-          - image: bootc-home-server
-            context: ./home-server
-            description: "Custom bootc image for my Home server"
-            sign: false
-
     permissions:
       contents: read
       packages: write
       id-token: write
 
     env:
-      IMAGE_DESC: ${{ matrix.description }}
+      IMAGE_DESC: "Personal bootc image for my Thinkpad X1 Carbon G13 Aura Laptop"
       IMAGE_KEYWORDS: "bootc,ublue,universal-blue"
       IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4"
-      IMAGE_NAME: ${{ matrix.image }}
+      IMAGE_NAME: "bootc-thinkpad"
       IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
       DEFAULT_TAG: "latest"
 
@@ -128,8 +114,8 @@ jobs:
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
-            ${{ matrix.context }}/Containerfile
-          context: ${{ matrix.context }}
+            ./thinkpad/Containerfile
+          context: ./thinkpad
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
@@ -167,10 +153,10 @@ jobs:
       # to consume. For more details, review the image signing section of the README.
       - name: Install Cosign
         uses: sigstore/cosign-installer@faadad0cce49287aee09b3a48701e75088a2c6ad # v4.0.0
-        if: matrix.sign && github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
 
       - name: Sign container image
-        if: matrix.sign && github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        if: github.event_name != 'pull_request' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         run: |
           IMAGE_FULL="${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}"
           for tag in ${{ steps.metadata.outputs.tags }}; do
