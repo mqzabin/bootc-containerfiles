@@ -7,4 +7,5 @@ dnf install -y \
     docker-compose-switch \
     docker-buildx \
     moby-engine \
-    qemu
+    qemu \
+    gvproxy
