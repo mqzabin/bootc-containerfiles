@@ -6,4 +6,5 @@ dnf install -y \
     docker-compose \
     docker-compose-switch \
     docker-buildx \
-    moby-engine
+    moby-engine \
+    qemu
