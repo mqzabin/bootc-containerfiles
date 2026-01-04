@@ -3,4 +3,4 @@
 dnf install -y \
     podman-docker \
     qemu \
-    gvproxy
+    podman-gvproxy
