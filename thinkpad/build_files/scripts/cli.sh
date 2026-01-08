@@ -7,14 +7,9 @@ dnf5 copr enable -y lihaohong/yazi
 
 
 dnf5 install -y \
-    helix \
+    neovim \
     stow \
-    mc \
-    tmux \
-    sassc \
-    gtk-murrine-engine \
     lazygit \
     zellij \
     yazi
 
-touch /etc/containers/nodocker

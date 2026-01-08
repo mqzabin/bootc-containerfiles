@@ -5,4 +5,5 @@ dnf install -y \
     qemu \
     podman-gvproxy \
     podman-machine \
-    
+
+touch /etc/containers/nodocker    
